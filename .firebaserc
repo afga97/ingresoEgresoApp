@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ingresoegresoapp-ca452": {
+      "hosting": {
+        "ingresoEgresoApp": [
+          "ingresoegresoapp-ca452"
+        ]
+      }
+    }
+  }
+}
