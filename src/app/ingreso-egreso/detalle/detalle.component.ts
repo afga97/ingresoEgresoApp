@@ -3,6 +3,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
 import { IngresoEgreso } from 'src/app/models/ingreso-egreso.model';
 import { Subscription } from 'rxjs';
+import { IngresoEgresoService } from 'src/app/services/ingreso-egreso.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detalle',
@@ -15,7 +17,8 @@ export class DetalleComponent implements OnInit, OnDestroy {
   items: IngresoEgreso[] = [];
   subscribeIngresoEgreso: Subscription = new Subscription();
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>,
+    private ingresoEgresoService: IngresoEgresoService) { }
 
   ngOnInit(): void {
     this.subscribeIngresoEgreso = this.store.select('ingresoEgresos')
@@ -28,6 +31,21 @@ export class DetalleComponent implements OnInit, OnDestroy {
 
   borrar(uid: string) {
     console.log(uid)
+    this.ingresoEgresoService.borrarIngresoEgreso(uid)
+      .then( () => {
+        Swal.fire(
+          'Registro eliminado',
+          '',
+          'success'
+        )
+      })
+      .catch( err => {
+        Swal.fire(
+          'Error al eliminar',
+          err.message,
+          'error'
+        )
+      })
   }
 
 }

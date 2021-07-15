@@ -34,4 +34,9 @@ export class IngresoEgresoService {
       )
   }
 
+  borrarIngresoEgreso(uidItem: string ) {
+    let uidUser = this.authService.user.uid.toString();
+    return this.firestore.doc(`${uidUser}/ingresos-egresos/items/${uidItem}`).delete()
+  }
+
 }
