@@ -9,7 +9,7 @@
                     </div>
 
                     <div class="text-wrapper">
-                        <p class="profile-name">Cristobal Colón</p>
+                        <p class="profile-name">{{ usuario?.nombre }}</p>
                         <div>
                             <small class="designation text-muted">Gerente</small>
                         </div>
@@ -20,21 +20,21 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active" >
+            <a class="nav-link" [routerLink]="['/dashboard']" routerLinkActive="router-link-active" >
                 <i class="menu-icon fa fa-tachometer-alt"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/ingreso-egreso']" routerLinkActive="router-link-active" >
+            <a class="nav-link" [routerLink]="['/dashboard/ingreso-egreso']" routerLinkActive="router-link-active" >
                 <i class="menu-icon fa fa-clipboard-list"></i>
                 <span class="menu-title">Ingresos y Egresos</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/detalle']" routerLinkActive="router-link-active" >
+            <a class="nav-link" [routerLink]="['/dashboard/detalle']" routerLinkActive="router-link-active" >
                 <i class="menu-icon fa fa-table"></i>
                 <span class="menu-title">Detalle</span>
             </a>

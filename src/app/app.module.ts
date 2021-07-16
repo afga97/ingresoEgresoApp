@@ -13,6 +13,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -53,6 +54,7 @@ import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
