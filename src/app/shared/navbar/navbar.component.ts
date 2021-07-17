@@ -22,7 +22,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.userSubscription = this.store.select('auth')
       .subscribe( auth => {
         this.usuario = auth.user
-        console.log(auth)
       })
   }
 

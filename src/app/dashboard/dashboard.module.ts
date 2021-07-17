@@ -1,16 +1,15 @@
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DetalleComponent } from '../ingreso-egreso/detalle/detalle.component';
+
+import { DashboardComponent } from './dashboard.component';
 import { EstadisticaComponent } from '../ingreso-egreso/estadistica/estadistica.component';
 import { IngresoEgresoComponent } from '../ingreso-egreso/ingreso-egreso.component';
-import { NgModule } from '@angular/core';
-import { DashboardComponent } from './dashboard.component';
-import { AuthGuard } from '../services/auth.guard';
+import { DetalleComponent } from '../ingreso-egreso/detalle/detalle.component';
 
 export const dashboardRoutes: Routes = [
     {
         path: '',
         component: DashboardComponent,
-        canActivate: [ AuthGuard ],
         children: [
             {
                 path: '',
@@ -20,16 +19,18 @@ export const dashboardRoutes: Routes = [
                 path: 'ingreso-egreso',
                 component: IngresoEgresoComponent
             },
-            { 
-                path: 'detalle', 
-                component: DetalleComponent 
+            {
+                path: 'detalle',
+                component: DetalleComponent
             },
         ]
     }
 ]
 
 @NgModule({
-    imports: [RouterModule.forChild(dashboardRoutes)],
+    imports: [
+        RouterModule.forChild(dashboardRoutes)
+    ],
     exports: [RouterModule]
 })
 export class DashboardRoutingModule { }
